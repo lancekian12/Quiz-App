@@ -23,6 +23,13 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void restartScreen() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'start-screen';
+    });
+  }
+
   void chooseAnswers(String answers) {
     selectedAnswers.add(answers);
 
@@ -43,10 +50,15 @@ class _QuizState extends State<Quiz> {
       );
     }
     if (activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(
-        choosenAnswers: [...selectedAnswers],
-      );
+      screenWidget =
+          ResultsScreen(restartScreen, choosenAnswers: [...selectedAnswers]);
     }
+
+    // if (activeScreen == 'restart-screen') {
+    //   selectedAnswers = [];
+    //   screenWidget = ResultsScreen(resratScree);
+    // }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
