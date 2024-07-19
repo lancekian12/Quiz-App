@@ -50,14 +50,9 @@ class _QuizState extends State<Quiz> {
       );
     }
     if (activeScreen == 'results-screen') {
-      screenWidget =
-          ResultsScreen(restartScreen, choosenAnswers: [...selectedAnswers]);
+      screenWidget = ResultsScreen(
+          restartScreen: restartScreen, choosenAnswers: [...selectedAnswers]);
     }
-
-    // if (activeScreen == 'restart-screen') {
-    //   selectedAnswers = [];
-    //   screenWidget = ResultsScreen(resratScree);
-    // }
 
     return MaterialApp(
       home: Scaffold(
